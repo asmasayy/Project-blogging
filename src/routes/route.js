@@ -24,7 +24,7 @@ router.put("/Blogs/:blogId",middleware.authentication,middleware.authUser,blogCo
 
 router.delete("/blogs/:blogId",middleware.authentication,middleware.authUser,blogControllers.validateBlog);
 
-router.delete("/Blogs",middleware.authentication,blogControllers.deleteBlogsByQuery);
+router.delete("/Blogs",middleware.authentication,middleware.authUser,blogControllers.deleteBlogsByQuery);
 
 
 

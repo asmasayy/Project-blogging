@@ -44,7 +44,7 @@ const login = async function (req, res) {
 
     let user = await AuthorModel.findOne({ email: userName, password: pass });
     if (!user)
-        return res.send({
+        return res.status(400).send({
             status: false,
             msg: "username or the password is not correct",
         });
@@ -58,7 +58,7 @@ const login = async function (req, res) {
         "bloggers"
     );
     res.setHeader("x-api-key", token);
-    res.send({ status: true, data: token });
+    res.status(200).send({ status: true, data: token });
 };
 
 
